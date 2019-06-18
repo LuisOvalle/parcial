@@ -33,6 +33,8 @@ conn.connect((err) =>{
   app.use(bodyParser.urlencoded({ extended: false }));
   //set public folder as static folder for static file
   app.use('/assets',express.static(__dirname + '/public'));
+  var publicDir = require('path').join(__dirname,'/public');
+  app.use(express.static(publicDir));
    
   //route for homepage
   app.get('/',(req, res) => {
